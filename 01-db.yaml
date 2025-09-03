@@ -39,7 +39,7 @@
 
   - name: Print the mysql db connection output
     ansible.builtin.debug:
-      msg: "otuput: {{ mysql_db_connection_output }}"
+      msg: "otuput: {{mysql_db_connection_output}}"
 
   # setup root password
 
