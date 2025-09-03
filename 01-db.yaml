@@ -32,10 +32,10 @@
       login_password: "{{ mysql_password }}"
       login_host: 172.31.23.22
       filter: version
-    ignore_errors: 
+    ignore_errors: yes
     register: mysql_db_connection_output
 
-  #print the output
+  # print the output
 
   - name: Print the mysql db connection output
     ansible.builtin.debug:
