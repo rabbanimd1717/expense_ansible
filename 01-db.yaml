@@ -12,16 +12,16 @@
       state: started
       enabled: yes
 
-# python dependencies for mysql connection server it is required
+  # python dependencies for mysql connection server it is required
 
   - name: Python dependencies for mysql
     ansible.builtin.pip:
-    name: 
-    - PyMySQL
-    - cryptography
-    executable: pip3.9
+      name: 
+      - PyMySQL
+      - cryptography
+      executable: pip3.9
 
-# CHECK password setup exist or not
+  # CHECK password setup exist or not
 
   - name: CHECK DB CONNECTION
     community.mysql.mysql_info:
@@ -32,7 +32,7 @@
     ignore_errors: 
     register: mysql_db_connection_output
 
-#print the output
+  #print the output
 
   - name: Print the mysql db connection output
     ansible.builtin.debug:
