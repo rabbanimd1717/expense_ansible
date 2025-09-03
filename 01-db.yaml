@@ -11,3 +11,20 @@
       name: mysqld
       state: started
       enabled: yes
+
+# CHECK password setup exist or not
+
+- name: CHECK DB CONNECTION
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: ExpenseApp@1
+    login_host: db
+    filter: version
+  ignore_errors: 
+  register: mysql_db_connection_output
+
+#print the output
+
+- name: Print the mysql db connection output
+  ansible.builtin.debug:
+    msg: "otuput: {{ mysql_db_connection_output }}"
