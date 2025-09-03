@@ -1,0 +1,13 @@
+- name: CONFIGURE DB CONNECTION SERVER
+  hosts: db 
+  become: yes
+  tasks:
+  - name: INSTALL MYSQL SERVER
+    ansible.builtin.dnf:
+      name: mysql-server
+      state: latest
+  - name: START AND ENABLED MYSQL SERVER
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
