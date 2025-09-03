@@ -30,7 +30,7 @@
     community.mysql.mysql_info:
       login_user: root
       login_password: "{{ mysql_password }}"
-      login_host: db
+      login_host: 172.31.23.22
       filter: version
     ignore_errors: 
     register: mysql_db_connection_output
