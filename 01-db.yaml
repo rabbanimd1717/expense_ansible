@@ -1,9 +1,12 @@
 - name: CONFIGURE DB CONNECTION SERVER
   hosts: db 
   become: yes
+  vars:
+    loginhost: 172.31.23.22
   vars_prompt:
   - name: mysql_password
     prompt: Enter MYSQL password
+    private: no
   tasks:
   - name: INSTALL MYSQL SERVER
     ansible.builtin.dnf:
@@ -30,7 +33,7 @@
     community.mysql.mysql_info:
       login_user: root
       login_password: "{{ mysql_password }}"
-      login_host: 172.31.23.22
+      login_host: "{{ loginhost }}"
       filter: version
     ignore_errors: yes
     register: mysql_db_connection_output
