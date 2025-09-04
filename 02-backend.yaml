@@ -19,8 +19,8 @@
 
   - name: CREATE A DIRECTORY
     ansible.builtin.file:
-    path: /app
-    state: directory 
+      path: /app
+      state: directory 
 
 # Download the application code to created app directory.
 
@@ -52,4 +52,4 @@
     ansible.builtin.service:
       state: started 
       enabled: yes 
-      
+
