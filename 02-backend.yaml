@@ -84,7 +84,7 @@
   become: yes
   hosts: backend
   vars:
-    login_host: db.daws78s.online
+    login_host: 172.31.23.22
     login_password: ExpenseApp@1
   tasks:
   - name: disable default nodejs
