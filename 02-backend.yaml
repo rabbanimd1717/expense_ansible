@@ -51,6 +51,6 @@
 
   - name: start and enable the backend service
     ansible.builtin.service:
-      state: started 
+      name: started 
       enabled: yes 
 
