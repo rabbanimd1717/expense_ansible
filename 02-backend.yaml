@@ -84,8 +84,11 @@
   become: yes
   hosts: backend
   vars:
-    login_host: 172.31.17.25
-    login_password: ExpenseApp@1
+    loginhost: 172.31.23.22
+  vars_prompt:
+  - name: mysql_password
+    prompt: Enter MYSQL password
+    private: no
   tasks:
   - name: disable default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
@@ -141,8 +144,8 @@
   - name: import data into mysql
     community.mysql.mysql_db:
       login_user: root
-      login_password: "{{ login_password }}"
-      login_host: "{{ login_host }}"
+      login_password: "{{ mysql_password }}"
+      login_host: "{{ loginhost }}"
       target: /app/schema/backend.sql
       state: import
       name: all
