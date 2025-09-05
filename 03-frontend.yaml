@@ -18,13 +18,8 @@
       state: absent
       path: /usr/share/nginx/html/
 
-  - name: Download the frontend content or code
-    ansible.builtin.get_url: 
-      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-      dest: /tmp/frontend.zip  
-
-  - name: Unzip the code 
+  - name: Unarchive a file that needs to be downloaded (added in 2.0)
     ansible.builtin.unarchive:
-      src: /tmp/frontend.zip  
+      src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
       dest: /usr/share/nginx/html/
-      remote_src: yes # already source file available in remote server
+      remote_src: yes
